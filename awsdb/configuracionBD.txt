@@ -1,0 +1,50 @@
+actualizar passwd root:root
+
+INSTALACION APACHE 
+sudo apt-get update
+sudo apt-get install apache2
+sudo ufw app list
+sudo ufw allow in "Apache Full"
+
+MYSQL (root:root1234)
+sudo apt install mysql-server
+sudo mysql_secure_installation
+sudo mysql
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root1234';
+FLUSH PRIVILEGES;
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+
+PHP
+sudo apt install php libapache2-mod-php php-mysql
+sudo nano /etc/apache2/mods-enabled/dir.conf
+**mover index.php al inicio de la lista de DirectoryIndex
+sudo systemctl restart apache2
+sudo systemctl status apache2
+**prueba de php en funcionamiento
+sudo nano /var/www/html/info.php	
+**agregar
+<?php
+phpinfo();
+?>
+**probar en http://IP/info.php
+sudo rm /var/www/html/info.php
+
+PHPmyadmin
+sudo apt update
+sudo apt install phpmyadmin php-mbstring php-gettext
+**seleccionar apache2
+pass: phpsql 
+yes en configurar dbcommon
+
+sudo phpenmod mbstring
+sudo systemctl restart apache2
+SECURE MYADMIN
+**create user:
+CREATE USER 'administrador03'@'localhost' IDENTIFIED BY 'administrador03';
+GRANT ALL PRIVILEGES ON *.* TO 'administrador03'@'localhost' WITH GRANT OPTION;
+
+
+
+ 
+ 
