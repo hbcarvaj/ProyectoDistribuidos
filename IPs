@@ -1,0 +1,39 @@
+
+Servidores para Replicacion
+balanceador-webServer
+-IPv4 Public IP
+54.183.114.123
+-Private IPs
+172.31.1.11
+
+webserver-Re1
+IPv4 Public IP
+13.57.215.123
+Private IPs
+172.31.26.57
+
+WebServer-Allan
+IPv4 Public IP
+54.183.187.53
+Private IPs
+172.31.11.170
+
+
+Servidores Usado en la base de datos
+DB1
+IPv4 Public IP
+54.219.171.83
+Private IPs
+172.31.0.239
+
+DB2
+IPv4 Public IP
+13.52.79.126
+Private IPs
+172.31.5.67
+
+DB3
+IPv4 Public IP
+52.53.208.20
+Private IPs
+172.31.10.183
