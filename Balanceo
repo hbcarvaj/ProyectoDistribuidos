@@ -1,0 +1,44 @@
+Instalacion de el Balanceador de carga .
+*****************Introducion*****************************
+Creamos 3 Servidores de los cuales tenemos configurada la pagina web en dos
+En estos 2 servidores veremos como va repartiendose las peticiones entre los estos servidores webs en el backend.
+Comandos:
+1.- sudo su
+2.- apt-get update
+3.- apt-get upgrade
+4.- apt-get install apache2 //instalacion de apache
+5.-a2enmod proxy proxy_http proxy_balancer lbmethod_byrequests //Habilitamos los siguientes módulos
+6.-cp /etc/apache2/sites-available/000-default.conf antiguo.conf
+7.- nano /etc/apache2/sites-available/000-default.conf //Se procedio a ingresar para ser modificado 
+8.- //Se agrego:
+                <Proxy balancer://mycluster>
+                BalancerMember http://172.31.1.11
+                BalancerMember http://172.31.26.57
+                BalancerMember http://172.31.11.170
+        </Proxy>
+        ProxyPreserveHost On
+
+        ProxyPass / balancer://mycluster/
+        ProxyPassReverse / balancer://mycluster/
+
+Nota: Solo se configuro en 1 de los 3 servidores con lo del paso 8 
+Las ips de los servidores son:     
+balanceador-webServer
+-IPv4 Public IP
+54.183.114.123
+-Private IPs
+172.31.1.11
+
+webserver-Re1
+IPv4 Public IP
+13.57.215.123
+Private IPs
+172.31.26.57
+
+WebServer-Allan
+IPv4 Public IP
+54.183.187.53
+Private IPs
+172.31.11.170
+
+9.-systemctl restart apache2 //reinicia el servici
