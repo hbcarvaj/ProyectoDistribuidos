@@ -21,7 +21,7 @@ Comandos:
         ProxyPass / balancer://mycluster/
         ProxyPassReverse / balancer://mycluster/
 
-Nota: Solo se configuro en 1 de los 3 servidores con lo del paso 8 
+Nota: Solo se configuro en 1 uno de los 3 servidores con lo del paso 8 en los demas solo descargo la pagina y se la configuro. 
 Las ips de los servidores son:     
 balanceador-webServer
 -IPv4 Public IP
